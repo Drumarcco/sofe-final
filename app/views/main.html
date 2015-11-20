@@ -1,0 +1,36 @@
+<div>
+  <div class="col-sm-12 col-md-12">
+    <label for="todoTitle">Agrega un todo:</label>
+    <input id="todoTitle" type="text" placeholder="Todo" ng-model="newTodo.todo.title">
+
+    <label for="isCompleted">Is Completed: </label>
+    <input id="isCompleted" type="checkbox" ng-model="newTodo.todo.isCompleted">
+    <button ng-click="post()">Agregar</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Completed
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="todo in todos">
+        <td>
+          {{todo.title}}
+        </td>
+        <td><input type="checkbox" ng-model="todo.isCompleted"></td>
+        <td>
+          <button ng-click="goTo(todo._id)">Detalles</button>
+          <button ng-click="delete(todo._id)">Borrar</button>
+          <button ng-click="put(todo)">Guardar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
